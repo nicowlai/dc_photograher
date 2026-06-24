@@ -1,30 +1,181 @@
 import React from "react";
 
 export default function PhotosGallery() {
-
+    // Part 1: created an array to store all of the images
     // creates rows 
     const rows = [
         {
-            rowId = "row-1",
+            rowId: "row-1",
+            position: 1, 
             images: [
-            {id: "1", position: 1, url:"https://f005.backblazeb2.com/file/DarthPhotos/vogue+models+near+south+street+seaport+(1)_result.webp", desc: "New York models walking on the street"},
-            {id: "2", position: 3, url:"https://f005.backblazeb2.com/file/DarthPhotos/washington+square+park+astrolita+arch+(1+of+1).webp", desc: "Model in Washington Sqaure Park"},
-            {id: "3", position: 2, url:"https://f005.backblazeb2.com/file/DarthPhotos/DarthCornelius4484--0035_34A_result.webp", desc: "New Yorkers posing on the street"},
+            {id: "1", position: 1, aspect:"4/3", url:"vogue models near south street seaport (1)_result.webp", desc: "New York models walking on the street"},
+            {id: "2", position: 3,aspect:"4/3",url:"washington square park astrolita arch (1 of 1).webp", desc: "Model in Washington Sqaure Park"},
+            {id: "3", position: 2, aspect:"4/3",url:"DarthCornelius4491--0023_23_result.webp", desc: "New Yorkers posing on the street"},
             ]
         },
         {
-            rowId = "row-2",
+            rowId: "row-2",
+            position: 2,
             images: [
-                { id: "4", position: 1, url:"https://f005.backblazeb2.com/file/DarthPhotos/Busted+3_result.webp", desc: "Lady in black latex"},
-                { id: "5", position: 2, url:"https://f005.backblazeb2.com/file/DarthPhotos/07_fashion.webp", desc: "B&W of a latino couple"},
-                { id: "6", position: 3, url:"https://f005.backblazeb2.com/file/DarthPhotos/Busted+3_result.webp", desc: "Girl in pink coat"},
-
+                { id: "4", position: 1, aspect:"3/4", url:"Busted 3_result.webp", desc: "Lady in black latex"},
+                { id: "5", position: 2,aspect:"3/4",  url:"07_fashion.webp", desc: "B&W of a latino couple"},
+                { id: "6", position: 3,aspect:"3/4",  url:"DarthCornelius4490--0013_13_result.webp", desc: "Girl in pink coat"},
             ]
-        }
-        
+        },
+        {
+            rowId: "row-3",
+            position: 3,
+            images: [
+                { id: "7", position: 1,aspect:"3/4",  url:"Elijah and Brother 42nd street B&H_result.webp", desc: "Brothers"},
+                { id: "8", position: 2, aspect:"4/3",  url:"Broadway Brooklyn New York colourful flags 2022-.webp", desc: "Broadway St in Brooklyn"},
+                { id: "9", position: 3,aspect:"3/4",  url:"DarthCornelius4484--0035_34A_result.webp", desc: "Black dude  with tatto"},
+            ]
+        },
+        {
+            rowId: "row-4",
+            position: 4,
+            images: [
+                { id: "10", position: 1,aspect:"4/3", url:"DarthCornelius4482--0035_33_result.webp", desc: "Two police offiers"},
+                { id: "11", position: 2,aspect:"4/3", url:"Single speed Boba fett venice beach-26_result.webp", desc: "Speed Boba Fett"},
+            ]
+        },
+        {
+            rowId: "row-5",
+            position: 5,
+            images: [
+                { id: "14", position: 1, aspect:"3/4",  url:"Walgreens New Orleans_result.webp", desc: "Walgreen"},
+                { id: "15", position: 2,aspect:"4/3", url:"Hussle - Louisiana streets_result.webp", desc: "Louisiana Nightlife"}, 
+                { id: "16", position: 3, aspect:"3/4", url:"DarthCornelius4495--0027_###_result.webp", desc: "Apollo neon sign"},
+            ]
+        },
+        {
+            rowId: "row-6",
+            position: 6,
+            images: [
+                { id: "17", position: 1,aspect:"4/3", url:"Looks like SHoegaze_result.webp", desc: "Shoegaze"},
+                { id: "18", position: 2,aspect:"4/3", url:"07_landscape.jpg", desc: "Flashing Light"},
+            ]
+        },
+        {
+            rowId: "row-7",
+            position: 7,
+            images: [
+                { id: "19", position: 1, aspect:"3/4",  url:"Puk for tama extra contrast magenta tint sat boost 1 pt_result.webp", desc: "Puk for tama"},
+                { id: "20", position: 2, aspect:"3/4",  url:"Wayno_result.webp", desc: "Wayno"},
+            ]
+        },
+        {
+            rowId: "row-8",
+            position: 8,
+            images: [
+                { id: "21", position: 1,aspect:"4/3", url:"02_landscape.webp", desc: "Bus"},
+                { id: "22", position: 2,aspect:"4/3", url:"Raureka Church behind the glass (1 of 1)_result.webp", desc: "Raureka Church"},
+                { id: "23", position: 3,aspect:"4/3", url:"Waiapu St MAts insta_result.webp", desc: "Waiapu St Mats"},
+            ]
+        },
+        {
+            rowId: "row-9",
+            position: 9,
+            images: [
+                { id: "24", position: 1,aspect:"4/3", url:"DarthCornelius760--0014_###_result.webp", desc: "B&W rural road"},
+                { id: "25", position: 2,aspect:"4/3", url:"flight arthur ashe stadium 1_result.webp", desc: "B&W Pyrmaid"},
+                { id: "26", position: 3,aspect:"4/3", url:"Cornelius_Darth_06_AvondaleBeforeGentrification_result.webp", desc: "backyard Auckland"},
+            ]
+        },
+        {
+            rowId: "row-10",
+            position: 10,
+            images: [
+                { id: "27", position: 1,aspect:"4/3", url:"us open 2022 arthur ashe stadium (1 of 1)_result.webp", desc: "US opening Arthur Ashe"},
+                { id: "28", position: 2, aspect:"3/4",  url:"the getty museum 2022 black -22 exp +0.76 (1 of 1)_result.webp", desc: "Getty Pyrmaid"},
+                { id: "29", position: 3,aspect:"3/4",  url:"F1870012_result.webp", desc: "Desert"},
+            ]
+        },
+        {
+            rowId: "row-11",
+            position: 11,
+            images: [
+                { id: "30", position: 1,aspect:"4/3", url:"MOMA reflection flipped(1)(1)_result.webp", desc: "MOMA reflection"},
+                { id: "31", position: 2,aspect:"4/3",url:"MOMA reflection inside_result.webp", desc: "MOMA reflection inside"},
+            ]
+        },
+        {
+            rowId: "row-12",
+            position: 12,
+            images: [
+                { id: "32", position: 1, aspect:"3/4",  url:"DarthCorne001543--0000181659068777411_result.webp", desc: "Man in hunting gear"},
+                { id: "33", position: 2, aspect:"3/4",  url:"CHe Full Length w dog_result.webp", desc: "Man with dog"},
+            ]
+        },
+        {
+            rowId: "row-13",
+            position: 13,
+            images: [
+                { id: "34", position: 1, aspect:"3/4",  url:"20250430_185728_result.webp", desc: "Man in a sunflower field"},
+                { id: "35", position: 2, aspect:"3/4",  url:"20231214_103846_result.webp", desc: "Egirl"},
+                { id: "36", position: 3, aspect:"3/4",  url:"Ari Abdul Fairfax print.webp", desc: "Ari"},
+            ]
+        },
+        {
+            rowId: "row-14",
+            position: 14,
+            images: [
+                { id: "37", position: 1, aspect:"3/4",  url:"DarthCornelius3689--0013_13_result.webp", desc: "Birds"},
+                { id: "38", position: 2, aspect:"4/3", url:"Venice Parrot reflection-4_result.webp", desc: "Man with Bird"},
+            ]
+        },
+    ];
 
-        
-    ]
+    //Part 2: sort by data from rows position by top to bottom 
+    const sortedRows = [...rows].sort((a, b) => a.position - b.position);
 
+    //Part 3: return to displayed images on the webpage
+    return (
+        <div style={{ maxWidth: '80%', margin: '0 auto', padding: '20px' }}>
+            {sortedRows.map((row) => {
+                // sort each single img inside the row from left to right
+                const sortedImgs = [...row.images].sort((a, b) => a.position - b.position);
+
+                return (
+                    <div // row container
+                        key={row.rowId}
+                        style={{
+                            display: 'flex',
+                            gap: '50px',
+                            marginBottom: '50px',
+                            width: '100%',
+                            height:'200px',
+                            alignItems: 'center'
+                        }}
+                    >
+                        {sortedImgs.map((image) => (
+                            <div // images container
+                                key={image.id}
+                                style={{
+                                    flex: '1',
+                                    width:'auto',
+                                    aspectRatio: image.aspect,
+                                    overflow: 'hidden',
+                                    borderRadius: '0',
+                                    backgroundColor: '#444444',
+                                }}
+                            >
+                                <img // image
+                                    src={image.url}
+                                    alt={image.desc}
+                                    loading="lazy"
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        display: 'block',
+                                        objectFit: 'cover',
+                                    }}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                );
+            })}
+        </div>
+    );
 }
-

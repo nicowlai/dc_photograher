@@ -1,7 +1,5 @@
-import { Link } from 'react-router-dom'
-import React from "react";
 import NavBar from '../components/NavBar'
-
+import PhotosGallery from '../components/PhotosGallery'
 
 function Portfolio() {
     return (
@@ -10,7 +8,8 @@ function Portfolio() {
         }}
         >
 
-        <NavBar />
+        <NavBar/>
+        <PhotosGallery/>
         </div> 
 
         
