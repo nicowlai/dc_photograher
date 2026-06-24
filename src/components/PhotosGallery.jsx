@@ -1,5 +1,10 @@
 import React from "react";
 
+const imageAssets = import.meta.glob('../assets/*', { eager: true, query: '?url', import: 'default' });
+const imageUrlsByFilename = Object.fromEntries(
+    Object.entries(imageAssets).map(([path, url]) => [path.split('/').pop(), url])
+);
+
 export default function PhotosGallery() {
     // Part 1: created an array to store all of the images
     // creates rows 
@@ -45,7 +50,7 @@ export default function PhotosGallery() {
             images: [
                 { id: "14", position: 1, aspect:"3/4",  url:"Walgreens New Orleans_result.webp", desc: "Walgreen"},
                 { id: "15", position: 2,aspect:"4/3", url:"Hussle - Louisiana streets_result.webp", desc: "Louisiana Nightlife"}, 
-                { id: "16", position: 3, aspect:"3/4", url:"DarthCornelius4495--0027_###_result.webp", desc: "Apollo neon sign"},
+                { id: "16", position: 3, aspect:"3/4", url:"DarthCornelius4495--0027_result.webp", desc: "Apollo neon sign"},
             ]
         },
         {
@@ -161,7 +166,7 @@ export default function PhotosGallery() {
                                 }}
                             >
                                 <img // image
-                                    src={image.url}
+                                    src={imageUrlsByFilename[image.url]}
                                     alt={image.desc}
                                     loading="lazy"
                                     style={{
