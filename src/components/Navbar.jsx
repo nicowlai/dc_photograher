@@ -7,32 +7,41 @@ function Navbar() {
         fontWeight: '200',
         color: '#c5c4c3',
         textShadow: '2px 2px 8px rgba(0,0,0,0.8)',
-        fontSize: 'clamp(2rem, 1vw, 1rem)', 
+        fontSize: 'clamp(1rem, 2vw, 1.5rem)',
         textDecoration: 'none'
-
     }
 
     return (
-        <nav>
-            <h1 style= {{
-                fontFamily: "Cormorant Garamond",
-                fontWeight: '200',
-                color: '#D97742',
-                textShadow: '2px 2px 8px rgba(0,0,0,0.8)',
-                fontSize: 'clamp(2rem, 1vw, 1rem)',
-                textDecoration: 'none'
-            }}> Darth Cornelius </h1>
+        <nav style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: '20px 40px',
+            backgroundColor: 'transparent',
+
+        }}>
+            <Link to = "/">
+                <h1 style= {{
+                    fontFamily: "Cormorant Garamond",
+                    fontWeight: '200',
+                    color: '#D97742',
+                    textShadow: '2px 2px 8px rgba(0,0,0,0.8)',
+                    fontSize: 'clamp(1rem, 2vw, 1.5rem)',
+                    textDecoration: 'none',
+                    display: 'inline',
+                    margin:'0',
+                }}> Darth Cornelius 
+                </h1>
+            </Link>
 
 
-            <div style = {{
-
+            <div style={{
+                //gap: '30px',
+                display: 'flex',
+                alignItems: 'left',
             }}> 
-                <Link to="/" style={linkStyle}> Home </Link>
-
-                <Link to = "/" style={linkStyle}> Bio|Contact </Link>
-
+                <Link to = "/bio-contact" style={linkStyle}> Bio|Contact </Link>
             </div>
-
         </nav>
     );
 }

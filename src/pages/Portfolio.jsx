@@ -10,9 +10,6 @@ function Portfolio() {
         <NavBar/>
         <PhotosGallery/>
         </div> 
-
-        
-
     )
 }
 
