@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 function Navbar() {
     const linkStyle = {
@@ -7,9 +7,12 @@ function Navbar() {
         fontWeight: '200',
         color: '#c5c4c3',
         textShadow: '2px 2px 8px rgba(0,0,0,0.8)',
-        fontSize: 'clamp(1rem, 2vw, 1.5rem)',
+        fontSize: 'clamp(1.2rem, 3vw, 2rem)',
+        fontWeight:'semi-bold',
         textDecoration: 'none'
     }
+
+    const location = useLocation()
 
     return (
         <nav style={{
@@ -26,7 +29,8 @@ function Navbar() {
                     fontWeight: '200',
                     color: '#D97742',
                     textShadow: '2px 2px 8px rgba(0,0,0,0.8)',
-                    fontSize: 'clamp(1rem, 2vw, 1.5rem)',
+                    fontSize: 'clamp(1.2rem, 3vw, 2rem)',
+                    fontWeight:'semi-bold',
                     textDecoration: 'none',
                     display: 'inline',
                     margin:'0',
@@ -38,9 +42,14 @@ function Navbar() {
             <div style={{
                 //gap: '30px',
                 display: 'flex',
-                alignItems: 'left',
+                alignItems: 'center',
             }}> 
-                <Link to = "/bio-contact" style={linkStyle}> Bio|Contact </Link>
+                {location.pathname === '/portfolio' ? (
+                <Link to="/bio-contact" style={linkStyle}>Bio | Contact
+                </Link>
+            ) : (
+                <Link to="/portfolio" style={linkStyle}>Portfolio</Link>
+                    )}
             </div>
         </nav>
     );

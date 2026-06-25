@@ -26,7 +26,7 @@ export default function PhotosGallery() {
         {
             rowId: "row-2",
             position: 2,
-            maxWidth: "81%",
+            //maxWidth: "81%",
             images: [
                 { id: "4", position: 1, aspect:"3/4", url:"Busted 3_result.webp", desc: "Lady in black latex"},
                 { id: "5", position: 2,aspect:"3/4",  url:"07_fashion.webp", desc: "B&W of a latino couple"},
@@ -45,7 +45,7 @@ export default function PhotosGallery() {
         {
             rowId: "row-4",
             position: 4,
-            maxWidth: "81%",
+            //maxWidth: "81%",
             images: [
                 { id: "10", position: 1,aspect:"4/3", url:"DarthCornelius4482--0035_33_result.webp", desc: "Two police offiers"},
                 { id: "11", position: 2,aspect:"4/3", url:"Single speed Boba fett venice beach-26_result.webp", desc: "Speed Boba Fett"},
@@ -63,7 +63,7 @@ export default function PhotosGallery() {
         {
             rowId: "row-6",
             position: 6,
-            maxWidth: "81%",
+            //maxWidth: "81%",
             images: [
                 { id: "17", position: 1,aspect:"4/3", url:"Looks like SHoegaze_result.webp", desc: "Shoegaze"},
                 { id: "18", position: 2,aspect:"4/3", url:"07_landscape.webp", desc: "Flashing Light"},
@@ -72,7 +72,7 @@ export default function PhotosGallery() {
         {
             rowId: "row-7",
             position: 12,
-            maxWidth: "81%",
+            //maxWidth: "81%",
             images: [
                 { id: "19", position: 1, aspect:"3/4",  url:"Puk for tama extra contrast magenta tint sat boost 1 pt_result.webp", desc: "Puk for tama"},
                 { id: "20", position: 2, aspect:"3/4",  url:"Wayno_result.webp", desc: "Wayno"},
@@ -90,7 +90,7 @@ export default function PhotosGallery() {
         {
             rowId: "row-9",
             position: 8,
-            maxWidth: "81%", // narrow this row
+            //maxWidth: "100%", // narrow this row
             images: [
                 { id: "24", position: 1,aspect:"4/3", url:"DarthCornelius760--0014_result.webp", desc: "B&W rural road"},
                 { id: "25", position: 2,aspect:"4/3", url:"flight arthur ashe stadium 1_result.webp", desc: "B&W Pyrmaid"},
@@ -109,7 +109,7 @@ export default function PhotosGallery() {
         {
             rowId: "row-11",
             position: 10,
-            maxWidth: "81%",
+            //maxWidth: "81%",
             images: [
                 { id: "30", position: 1,aspect:"4/3", url:"MOMA reflection flipped(1)(1)_result.webp", desc: "MOMA reflection"},
                 { id: "31", position: 2,aspect:"4/3",url:"MOMA reflection inside_result.webp", desc: "MOMA reflection inside"},
@@ -118,7 +118,7 @@ export default function PhotosGallery() {
         {
             rowId: "row-12",
             position: 11,
-            maxWidth: "81%",
+            //maxWidth: "81%",
             images: [
                 { id: "32", position: 1, aspect:"3/4",  url:"DarthCorne001543--0000181659068777411_result.webp", desc: "Man in hunting gear"},
                 { id: "33", position: 2, aspect:"3/4",  url:"CHe Full Length w dog_result.webp", desc: "Man with dog"},
@@ -127,7 +127,7 @@ export default function PhotosGallery() {
         {
             rowId: "row-13",
             position: 13,
-            maxWidth: "81%",
+            //maxWidth: "81%",
             images: [
                 { id: "34", position: 1, aspect:"3/4",  url:"20250430_185728_result.webp", desc: "Man in a sunflower field"},
                 { id: "35", position: 2, aspect:"3/4",  url:"20231214_103846_result.webp", desc: "Egirl"},
@@ -137,7 +137,7 @@ export default function PhotosGallery() {
         {
             rowId: "row-14",
             position: 14,
-            maxWidth: "81%",
+            //maxWidth: "81%",
             images: [
                 { id: "37", position: 1, aspect:"3/4",  url:"DarthCornelius3689--0013_13_result.webp", desc: "Birds"},
                 { id: "38", position: 2, aspect:"4/3", url:"Venice Parrot reflection-4_result.webp", desc: "Man with Bird"},
@@ -161,7 +161,7 @@ export default function PhotosGallery() {
     return (
         <>
             {/* outer container */}
-            <div style={{ maxWidth: '100%', margin: '0 auto', padding: '10px 100px', boxSizing: 'border-box' }}>
+            <div style={{ maxWidth: '100%', margin: '0 auto', padding: '10px 0', boxSizing: 'border-box' }}>
                 {sortedRows.map((row) => {
                     // sort each single img inside the row from left to right
                     const sortedImgs = [...row.images].sort((a, b) => a.position - b.position);
@@ -176,12 +176,14 @@ export default function PhotosGallery() {
                             style={{
                                 display: 'flex',
                                 gap: '20px',
-                                width: '100%',
+                                //width: '100%',
                                 maxWidth: row.maxWidth || '100%',
                                 margin: '0 auto 20px', // last value = gap below each row
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                 boxSizing: 'border-box',
+                                paddingLeft: '100px',
+                                paddingRight: '100px', 
 
                             }}
                         >
@@ -190,11 +192,11 @@ export default function PhotosGallery() {
                                     key={image.id}
                                     className="gallery-img"
                                     style={{
-                                        flex: isNarrow ? '1 1 0' : 'none',
+                                        flex: isNarrow ? '1 1 0' : '0 1 auto',
                                         minWidth: isNarrow ? 0 : undefined,
                                         aspectRatio: image.aspect,
                                         overflow: 'hidden',
-                                        height: isNarrow ? 'auto' : '350px',
+                                        height: isNarrow ? 'auto' : '40vh',
                                         maxHeight: '100vh',
                                         backgroundColor: '#444444',
                                         cursor: 'pointer',

@@ -1,9 +1,9 @@
-
+import NavBar from '../components/NavBar'
 
 function BioContact() {
     return (
         <div>
-            <h1>Bio Contact Page</h1>
+            <NavBar> </NavBar>
         </div>
     )
 }

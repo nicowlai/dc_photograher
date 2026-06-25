@@ -14,7 +14,6 @@ function Portfolio() {
              }}
         >
         
-        
             <NavBar/>
             <PhotosGallery/>
         </motion.div>
