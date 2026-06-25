@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 const imageAssets = import.meta.glob('../assets/*', { eager: true, query: '?url', import: 'default' });
 const imageUrlsByFilename = Object.fromEntries(
@@ -6,6 +8,9 @@ const imageUrlsByFilename = Object.fromEntries(
 );
 
 export default function PhotosGallery() {
+    const [open, setOpen] = useState(false); // lightbox function
+    const [index, setIndex] = useState(0); // check which image is selected
+
     // Part 1: created an array to store all of the images
     // creates rows 
     const rows = [
@@ -143,63 +148,90 @@ export default function PhotosGallery() {
     //Part 2: sort by data from rows position by top to bottom 
     const sortedRows = [...rows].sort((a, b) => a.position - b.position);
 
+    // Part 4: create a slider for the light box feature
+    const slides = sortedRows.flatMap(row => {
+    const sortedImgs = [...row.images].sort((a, b) => a.position - b.position)
+    return sortedImgs.map(image => ({
+        src: imageUrlsByFilename[image.url],
+        alt: image.desc,
+        })) 
+    })
+
     //Part 3: return to displayed images on the webpage
     return (
-        // outer container 
-        <div style={{ maxWidth: '100%', margin: '0 auto', padding: '10px 100px', boxSizing: 'border-box' }}>
-            {sortedRows.map((row) => {
-                // sort each single img inside the row from left to right
-                const sortedImgs = [...row.images].sort((a, b) => a.position - b.position);
+        <>
+            {/* outer container */}
+            <div style={{ maxWidth: '100%', margin: '0 auto', padding: '10px 100px', boxSizing: 'border-box' }}>
+                {sortedRows.map((row) => {
+                    // sort each single img inside the row from left to right
+                    const sortedImgs = [...row.images].sort((a, b) => a.position - b.position);
 
-                // a row with maxWidth is narrowed + centered, and its images
-                // scale to fit (so the narrower width is actually visible)
-                const isNarrow = !!row.maxWidth;
+                    // a row with maxWidth is narrowed + centered, and its images
+                    // scale to fit (so the narrower width is actually visible)
+                    const isNarrow = !!row.maxWidth;
 
-                return (
-                    <div // row container
-                        key={row.rowId}
-                        style={{
-                            display: 'flex',
-                            gap: '20px',
-                            width: '100%',
-                            maxWidth: row.maxWidth || '100%',
-                            margin: '0 auto 20px', // last value = gap below each row
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            boxSizing: 'border-box',
+                    return (
+                        <div // row container
+                            key={row.rowId}
+                            style={{
+                                display: 'flex',
+                                gap: '20px',
+                                width: '100%',
+                                maxWidth: row.maxWidth || '100%',
+                                margin: '0 auto 20px', // last value = gap below each row
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                boxSizing: 'border-box',
 
-                        }}
-                    >
-                        {sortedImgs.map((image) => (
-                            <div // images container
-                                key={image.id}
-                                style={{
-                                    flex: isNarrow ? '1 1 0' : 'none',
-                                    minWidth: isNarrow ? 0 : undefined,
-                                    aspectRatio: image.aspect,
-                                    overflow: 'hidden',
-                                    height: isNarrow ? 'auto' : '350px',
-                                    maxHeight: '100vh',
-                                    backgroundColor: '#444444',
-
-                                }}
-                            >
-                                <img // image
-                                    src={imageUrlsByFilename[image.url]}
-                                    alt={image.desc}
-                                    loading="lazy"
+                            }}
+                        >
+                            {sortedImgs.map((image) => (
+                                <div // images container
+                                    key={image.id}
+                                    className="gallery-img"
                                     style={{
-                                        width: '100%',
-                                        height: '100%',
-                                        display: 'block',
-                                        objectFit: 'cover',
+                                        flex: isNarrow ? '1 1 0' : 'none',
+                                        minWidth: isNarrow ? 0 : undefined,
+                                        aspectRatio: image.aspect,
+                                        overflow: 'hidden',
+                                        height: isNarrow ? 'auto' : '350px',
+                                        maxHeight: '100vh',
+                                        backgroundColor: '#444444',
+                                        cursor: 'pointer',
                                     }}
-                                />
-                            </div>
-                        ))}
-                    </div>
-                );
-            })}
-        </div>
+                                >
+                                    <img // image
+                                        src={imageUrlsByFilename[image.url]}
+                                        alt={image.desc}
+                                        loading="lazy"
+                                        onClick={() => {
+                                        setIndex(slides.findIndex(s => s.src === imageUrlsByFilename[image.url]));
+                                        setOpen(true);
+                                        }}
+                                        style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            display: 'block',
+                                            objectFit: 'cover',
+                                        }}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    );
+                })}
+            </div>
+
+            <Lightbox
+                open={open}
+                close={() => setOpen(false)}
+                slides={slides}
+                index={index}
+                setIndex={setIndex}
+                styles={{
+                    container: { backgroundColor: "rgba(0, 0, 0, 0.7)"}
+                }}
+            />
+        </>
     );
 }

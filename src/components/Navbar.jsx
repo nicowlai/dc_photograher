@@ -6,6 +6,7 @@ function Navbar() {
         fontFamily: "Cormorant Garamond",
         fontWeight: '200',
         color: '#c5c4c3',
+        textShadow: '2px 2px 8px rgba(0,0,0,0.8)',
         fontSize: 'clamp(2rem, 1vw, 1rem)', 
         textDecoration: 'none'
 

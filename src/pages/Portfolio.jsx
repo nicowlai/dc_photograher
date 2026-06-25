@@ -7,7 +7,6 @@ function Portfolio() {
             backgroundColor:'#444444', 
         }}
         >
-
         <NavBar/>
         <PhotosGallery/>
         </div> 
