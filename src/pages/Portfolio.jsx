@@ -1,4 +1,4 @@
-import NavBar from '../components/NavBar'
+import NavBar from '../components/Navbar'
 import PhotosGallery from '../components/PhotosGallery'
 import { motion } from 'framer-motion' 
 
