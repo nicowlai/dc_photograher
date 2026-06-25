@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+#root {
+  background-color: #2e2d2d;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, 
+body {
+  background-color: #2e2d2d;
+  margin: 0;
+  padding: 0;
+  /* This ensures the entire viewport is black even before content loads */
+  min-height: 100vh; 
+}
+
 
 nav {
     display: flex;

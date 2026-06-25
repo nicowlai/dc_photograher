@@ -1,6 +1,7 @@
 import React from "react";
 import VogueModels from '../assets/voguemodels.jpg'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 // HOMEPAGE OF THE WEBSITE
 function Home() {
@@ -13,6 +14,15 @@ function Home() {
         textDecoration: 'none'
     }
     return (
+        <motion.div 
+            initial={{ opacity: 0 }}    // start invisible
+            animate={{ opacity: 1 }}    // fade in
+            exit={{ opacity: 0 }}       // fade out
+            transition={{ duration: 0.7, ease: 'easeInOut' }}
+            style={{ minHeight: '100vh',
+                backgroundColor: 'black'
+             }}
+        >
         <div style={{
             backgroundImage: `url(${VogueModels})`,
             backgroundSize: 'cover',
@@ -57,6 +67,7 @@ function Home() {
                 <Link to="/portfolio" style ={linkHeaders}>PORTFOLIO</Link>
             </div>
         </div>
+        </motion.div>
     );
 }
 
