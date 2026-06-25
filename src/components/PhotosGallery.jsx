@@ -14,8 +14,8 @@ export default function PhotosGallery() {
             position: 1, 
             images: [
             {id: "1", position: 1, aspect:"4/3", url:"vogue models near south street seaport (1)_result.webp", desc: "New York models walking on the street"},
-            {id: "2", position: 3,aspect:"4/3",url:"washington square park astrolita arch (1 of 1).webp", desc: "Model in Washington Sqaure Park"},
-            {id: "3", position: 2, aspect:"4/3",url:"DarthCornelius4491--0023_23_result.webp", desc: "New Yorkers posing on the street"},
+            {id: "2", position: 3,aspect:"3/4",url:"washington square park astrolita arch (1 of 1).webp", desc: "Model in Washington Sqaure Park"},
+            {id: "3", position: 2, aspect:"3/4",url:"DarthCornelius4491--0023_23_result.webp", desc: "New Yorkers posing on the street"},
             ]
         },
         {
@@ -31,7 +31,7 @@ export default function PhotosGallery() {
             rowId: "row-3",
             position: 3,
             images: [
-                { id: "7", position: 1,aspect:"3/4",  url:"Elijah and Brother 42nd street B&H_result.webp", desc: "Brothers"},
+                { id: "7", position: 1,aspect:"3/4",  url:"Elijah_and_Brother_42nd_street_B&H_result.webp", desc: "Brothers"},
                 { id: "8", position: 2, aspect:"4/3",  url:"Broadway Brooklyn New York colourful flags 2022-.webp", desc: "Broadway St in Brooklyn"},
                 { id: "9", position: 3,aspect:"3/4",  url:"DarthCornelius4484--0035_34A_result.webp", desc: "Black dude  with tatto"},
             ]
@@ -63,7 +63,7 @@ export default function PhotosGallery() {
         },
         {
             rowId: "row-7",
-            position: 7,
+            position: 12,
             images: [
                 { id: "19", position: 1, aspect:"3/4",  url:"Puk for tama extra contrast magenta tint sat boost 1 pt_result.webp", desc: "Puk for tama"},
                 { id: "20", position: 2, aspect:"3/4",  url:"Wayno_result.webp", desc: "Wayno"},
@@ -71,34 +71,35 @@ export default function PhotosGallery() {
         },
         {
             rowId: "row-8",
-            position: 8,
+            position: 7,
             images: [
-                { id: "21", position: 1,aspect:"4/3", url:"02_landscape.webp", desc: "Bus"},
+                { id: "21", position: 1,aspect:"3/4", url:"02_landscape.webp", desc: "Bus"},
                 { id: "22", position: 2,aspect:"4/3", url:"Raureka Church behind the glass (1 of 1)_result.webp", desc: "Raureka Church"},
-                { id: "23", position: 3,aspect:"4/3", url:"Waiapu St MAts insta_result.webp", desc: "Waiapu St Mats"},
+                { id: "23", position: 3,aspect:"3/4", url:"Waiapu St MAts insta_result.webp", desc: "Waiapu St Mats"},
             ]
         },
         {
             rowId: "row-9",
-            position: 9,
+            position: 8,
+            maxWidth: "100%", // narrow this row
             images: [
-                { id: "24", position: 1,aspect:"4/3", url:"DarthCornelius760--0014_###_result.webp", desc: "B&W rural road"},
+                { id: "24", position: 1,aspect:"4/3", url:"DarthCornelius760--0014_result.webp", desc: "B&W rural road"},
                 { id: "25", position: 2,aspect:"4/3", url:"flight arthur ashe stadium 1_result.webp", desc: "B&W Pyrmaid"},
                 { id: "26", position: 3,aspect:"4/3", url:"Cornelius_Darth_06_AvondaleBeforeGentrification_result.webp", desc: "backyard Auckland"},
             ]
         },
         {
             rowId: "row-10",
-            position: 10,
+            position: 9,
             images: [
-                { id: "27", position: 1,aspect:"4/3", url:"us open 2022 arthur ashe stadium (1 of 1)_result.webp", desc: "US opening Arthur Ashe"},
-                { id: "28", position: 2, aspect:"3/4",  url:"the getty museum 2022 black -22 exp +0.76 (1 of 1)_result.webp", desc: "Getty Pyrmaid"},
+                { id: "27", position: 2,aspect:"4/3", url:"us open 2022 arthur ashe stadium (1 of 1)_result.webp", desc: "US opening Arthur Ashe"},
+                { id: "28", position: 1, aspect:"3/4",  url:"the getty museum 2022 black -22 exp +0.76 (1 of 1)_result.webp", desc: "Getty Pyrmaid"},
                 { id: "29", position: 3,aspect:"3/4",  url:"F1870012_result.webp", desc: "Desert"},
             ]
         },
         {
             rowId: "row-11",
-            position: 11,
+            position: 10,
             images: [
                 { id: "30", position: 1,aspect:"4/3", url:"MOMA reflection flipped(1)(1)_result.webp", desc: "MOMA reflection"},
                 { id: "31", position: 2,aspect:"4/3",url:"MOMA reflection inside_result.webp", desc: "MOMA reflection inside"},
@@ -106,7 +107,7 @@ export default function PhotosGallery() {
         },
         {
             rowId: "row-12",
-            position: 12,
+            position: 11,
             images: [
                 { id: "32", position: 1, aspect:"3/4",  url:"DarthCorne001543--0000181659068777411_result.webp", desc: "Man in hunting gear"},
                 { id: "33", position: 2, aspect:"3/4",  url:"CHe Full Length w dog_result.webp", desc: "Man with dog"},
@@ -136,33 +137,42 @@ export default function PhotosGallery() {
 
     //Part 3: return to displayed images on the webpage
     return (
-        <div style={{ maxWidth: '80%', margin: '0 auto', padding: '20px' }}>
+        <div style={{ maxWidth: '100%', margin: '0 auto', padding: '10px 100px', boxSizing: 'border-box' }}>
             {sortedRows.map((row) => {
                 // sort each single img inside the row from left to right
                 const sortedImgs = [...row.images].sort((a, b) => a.position - b.position);
+
+                // a row with maxWidth is narrowed + centered, and its images
+                // scale to fit (so the narrower width is actually visible)
+                const isNarrow = !!row.maxWidth;
 
                 return (
                     <div // row container
                         key={row.rowId}
                         style={{
                             display: 'flex',
-                            gap: '50px',
-                            marginBottom: '50px',
+                            gap: '20px',
                             width: '100%',
-                            height:'200px',
-                            alignItems: 'center'
+                            maxWidth: row.maxWidth || '100%',
+                            margin: '0 auto 20px', // last value = gap below each row
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            boxSizing: 'border-box',
+
                         }}
                     >
                         {sortedImgs.map((image) => (
                             <div // images container
                                 key={image.id}
                                 style={{
-                                    flex: '1',
-                                    width:'auto',
+                                    flex: isNarrow ? '1 1 0' : 'none',
+                                    minWidth: isNarrow ? 0 : undefined,
                                     aspectRatio: image.aspect,
                                     overflow: 'hidden',
-                                    borderRadius: '0',
+                                    height: isNarrow ? 'auto' : '350px',
+                                    maxHeight: '100vh',
                                     backgroundColor: '#444444',
+
                                 }}
                             >
                                 <img // image
