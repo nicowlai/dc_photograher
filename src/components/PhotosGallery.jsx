@@ -58,7 +58,7 @@ export default function PhotosGallery() {
             position: 6,
             images: [
                 { id: "17", position: 1,aspect:"4/3", url:"Looks like SHoegaze_result.webp", desc: "Shoegaze"},
-                { id: "18", position: 2,aspect:"4/3", url:"07_landscape.jpg", desc: "Flashing Light"},
+                { id: "18", position: 2,aspect:"4/3", url:"07_landscape.webp", desc: "Flashing Light"},
             ]
         },
         {
