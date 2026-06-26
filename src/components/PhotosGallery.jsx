@@ -173,6 +173,7 @@ export default function PhotosGallery() {
                     return (
                         <div // row container
                             key={row.rowId}
+                            className="gallery-row" // screen size 
                             style={{
                                 display: 'flex',
                                 gap: '20px',
@@ -184,7 +185,6 @@ export default function PhotosGallery() {
                                 boxSizing: 'border-box',
                                 paddingLeft: '100px',
                                 paddingRight: '100px', 
-                                className="gallery-row" // screen size 
 
                             }}
                         >
