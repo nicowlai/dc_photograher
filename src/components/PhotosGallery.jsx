@@ -206,6 +206,8 @@ export default function PhotosGallery() {
                                         src={imageUrlsByFilename[image.url]}
                                         alt={image.desc}
                                         loading="lazy"
+                                        draggable="false"
+                                        onContextMenu={(e) => e.preventDefault()}
                                         onClick={() => {
                                         setIndex(slides.findIndex(s => s.src === imageUrlsByFilename[image.url]));
                                         setOpen(true);
@@ -229,6 +231,26 @@ export default function PhotosGallery() {
                 close={() => setOpen(false)}
                 slides={slides}
                 index={index}
+                render={{
+                    slide: ({slide}) => (
+                        <img 
+                        src={slide.src}
+                        alt={slide.alt}
+                        //prevent user from saving and copy imgs 
+                        draggable="false"
+                        onContextMenu={(e) => e.preventDefault()}
+                        style={{
+                            maxHeight: '100%',
+                            maxWidth: '100%',
+                            objectFit: 'contain',
+                        }}
+                        />
+                    )
+                }}
+                
+                toolbar={{
+                    buttons:["close"] // only show the close button only
+                }}
                 setIndex={setIndex}
                 styles={{
                     container: { backgroundColor: "rgba(0, 0, 0, 0.7)"}
