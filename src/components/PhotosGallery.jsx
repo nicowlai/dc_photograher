@@ -184,6 +184,7 @@ export default function PhotosGallery() {
                                 boxSizing: 'border-box',
                                 paddingLeft: '100px',
                                 paddingRight: '100px', 
+                                className="gallery-row" // screen size 
 
                             }}
                         >
@@ -247,7 +248,7 @@ export default function PhotosGallery() {
                         />
                     )
                 }}
-                
+
                 toolbar={{
                     buttons:["close"] // only show the close button only
                 }}

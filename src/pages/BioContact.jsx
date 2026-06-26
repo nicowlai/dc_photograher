@@ -37,7 +37,9 @@ function BioContact() {
             }}
         >
             <NavBar />
-            <main style={{
+            <main 
+            className="bio-container" // displayed screen size for mobile
+            style={{
             display:'flex',
             flexDirection: 'row',
             minHeight: '100vh',

@@ -44,4 +44,25 @@ nav div {
 .gallery-img:hover img {
     transform: scale(1.05);
 }
+/* display photo gallery for different screen sizes*/
+@media (max-width: 768px) {
+    /* each row stacks vertically */
+    .gallery-row {
+        flex-direction: column !important;
+        height: auto !important;
+    }
 
+    /* each image takes full width */
+    .gallery-img {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: auto !important;
+    }
+}
+/* display bio by column */
+@media (max-width: 768px) {
+    .bio-container {
+        flex-direction: column !important;
+        margin: 0 20px !important;
+    }
+}
